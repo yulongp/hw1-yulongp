@@ -7,7 +7,7 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.tutorial.RoomNumber;
 
 
-public class NerAnnotator extends JCasAnnotator_ImplBase {
+public class NERAnnotator extends JCasAnnotator_ImplBase {
 	public void process(JCas aJCas) {
 	    
 		String str = aJCas.getDocumentText();

@@ -10,7 +10,7 @@ import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceProcessException;
 
-public class CasConsumer extends CasConsumer_ImplBase {
+public class CASConsumer extends CasConsumer_ImplBase {
 	
 	public static final String PARAM_OUTPUT = "";
 	
