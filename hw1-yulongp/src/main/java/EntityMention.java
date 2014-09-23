@@ -10,8 +10,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** mention of an entity
- * Updated by JCasGen Tue Sep 23 14:19:56 EDT 2014
- * XML source: /home/paul/git/hw1-yulongp/hw1-yulongp/src/main/resources/typeSystemDescriptor.xml
+ * Updated by JCasGen Tue Sep 23 14:38:03 EDT 2014
+ * XML source: /home/paul/git/hw1-yulongp/hw1-yulongp/src/main/resources/NERAnnotator.xml
  * @generated */
 public class EntityMention extends Annotation {
   /** @generated

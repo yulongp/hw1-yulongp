@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpeDescription>
+  <collectionReader>
+    <collectionIterator>
+      <descriptor>
+        <include href="src/main/resources/collectionReaderDescriptor.xml"/>
+      </descriptor>
+    </collectionIterator>
+  </collectionReader>
+  <casProcessors dropCasOnException="true" casPoolSize="1" 
+      processingUnitThreadCount="1">
+    <casProcessor deployment="integrated" 
+      name="NER Annotator">
+      <descriptor>
+        <include href="src/main/resources/NERAnnotator.xml"/>
+      </descriptor>
+      <deploymentParameters/>
+      <filter/>
+      <errorHandling>
+        <errorRateThreshold action="terminate" value="100/1000"/>
+                <maxConsecutiveRestarts action="terminate" value="30"/>
+                <timeout max="100000"/>
+      </errorHandling>
+      <checkpoint batch="1"/>
+    </casProcessor>
+    <casProcessor deployment="integrated" 
+      name="CAS Consumer">
+      <descriptor>
+        <include href="src/main/resources/casConsumerDescriptor.xml"/>
+      </descriptor>
+      <deploymentParameters/>
+      <filter/>
+      <errorHandling>
+        <errorRateThreshold action="terminate" value="100/1000"/>
+                <maxConsecutiveRestarts action="terminate" value="30"/>
+                <timeout max="100000"/>
+      </errorHandling>
+      <checkpoint batch="1"/>
+    </casProcessor>
+  </casProcessors>
+  <cpeConfig>
+    <numToProcess>1</numToProcess>
+    <deployAs>immediate</deployAs>
+    <checkpoint file="" time="3000"/>
+    <timerImpl/>
+  </cpeConfig>
+</cpeDescription>
