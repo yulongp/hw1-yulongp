@@ -39,7 +39,7 @@
     </casProcessor>
   </casProcessors>
   <cpeConfig>
-    <numToProcess>1</numToProcess>
+    <numToProcess>-1</numToProcess>
     <deployAs>immediate</deployAs>
     <checkpoint file="" time="3000"/>
     <timerImpl/>

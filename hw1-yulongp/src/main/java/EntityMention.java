@@ -10,8 +10,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** mention of an entity
- * Updated by JCasGen Tue Sep 23 14:38:03 EDT 2014
- * XML source: /home/paul/git/hw1-yulongp/hw1-yulongp/src/main/resources/NERAnnotator.xml
+ * Updated by JCasGen Tue Sep 23 22:11:15 EDT 2014
+ * XML source: /home/paul/git/hw1-yulongp/hw1-yulongp/src/main/resources/typeSystemDescriptor.xml
  * @generated */
 public class EntityMention extends Annotation {
   /** @generated
@@ -82,19 +82,19 @@ public class EntityMention extends Annotation {
    * @generated
    * @return value of the feature 
    */
-  public int getId() {
+  public String getId() {
     if (EntityMention_Type.featOkTst && ((EntityMention_Type)jcasType).casFeat_id == null)
       jcasType.jcas.throwFeatMissing("id", "EntityMention");
-    return jcasType.ll_cas.ll_getIntValue(addr, ((EntityMention_Type)jcasType).casFeatCode_id);}
+    return jcasType.ll_cas.ll_getStringValue(addr, ((EntityMention_Type)jcasType).casFeatCode_id);}
     
   /** setter for id - sets id of this mention 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setId(int v) {
+  public void setId(String v) {
     if (EntityMention_Type.featOkTst && ((EntityMention_Type)jcasType).casFeat_id == null)
       jcasType.jcas.throwFeatMissing("id", "EntityMention");
-    jcasType.ll_cas.ll_setIntValue(addr, ((EntityMention_Type)jcasType).casFeatCode_id, v);}    
+    jcasType.ll_cas.ll_setStringValue(addr, ((EntityMention_Type)jcasType).casFeatCode_id, v);}    
    
     
   //*--------------*
