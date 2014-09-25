@@ -15,8 +15,9 @@ public class CASConsumer extends CasConsumer_ImplBase {
 
 	public BufferedWriter outfile;
 
+	/** the implementation of initialize in CAS consumer
+	 */
 	public void initialize() {
-		// open the output file
 		try {
 			File file = new File((String) getConfigParameterValue("OutputFile"));
 			file.createNewFile();
@@ -31,6 +32,8 @@ public class CASConsumer extends CasConsumer_ImplBase {
 		}
 	}
 
+	/** the implementation of collectionProcessComplete in CAS consumer
+	 */
 	public void collectionProcessComplete() {
 		try {
 			outfile.close();
@@ -40,6 +43,9 @@ public class CASConsumer extends CasConsumer_ImplBase {
 		}
 	}
 
+	/** the implementation of processCas in CAS consumer
+	 * @param CAS aCAS
+	 */
 	public void processCas(CAS aCAS) throws ResourceProcessException {
 		JCas jcas;
 		try {
@@ -47,13 +53,10 @@ public class CASConsumer extends CasConsumer_ImplBase {
 		} catch (CASException e) {
 			throw new ResourceProcessException(e);
 		}
-
-		// retrieve the filename of the input file from the CAS
 		FSIterator it = jcas.getAnnotationIndex(EntityMention.type).iterator();
 
 		if (it.hasNext()) {
 			EntityMention s = (EntityMention) it.next();
-			// write the entity mention to the output file
 			try {
 				outfile.write(s.getId() + "|" + s.getStart() + " " + s.getEnd()
 						+ "|" + s.getContent() + "\n");
@@ -63,7 +66,6 @@ public class CASConsumer extends CasConsumer_ImplBase {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 }

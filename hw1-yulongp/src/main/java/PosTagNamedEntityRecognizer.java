@@ -18,12 +18,18 @@ public class PosTagNamedEntityRecognizer {
 
   private StanfordCoreNLP pipeline;
 
+  /** constructor of PosTagNamedEntityRecognizer
+	 */
   public PosTagNamedEntityRecognizer() throws ResourceInitializationException {
     Properties props = new Properties();
     props.put("annotators", "tokenize, ssplit, pos");
     pipeline = new StanfordCoreNLP(props);
   }
 
+  /** calculate the span of genes in every line of text
+	 * @generated
+	 * @param String text 
+	 */
   public Map<Integer, Integer> getGeneSpans(String text) {
     Map<Integer, Integer> begin2end = new HashMap<Integer, Integer>();
     Annotation document = new Annotation(text);

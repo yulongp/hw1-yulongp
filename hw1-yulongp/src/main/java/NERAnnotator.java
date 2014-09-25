@@ -11,13 +11,13 @@ import org.apache.uima.tutorial.RoomNumber;
 
 public class NERAnnotator extends JCasAnnotator_ImplBase {
 
-	// the standford NER tool
 	private PosTagNamedEntityRecognizer myner;
 
+	/** constructor of NERAnnotator
+	 */
 	public NERAnnotator() {
 
 		try {
-			// load the NER tool
 			myner = new PosTagNamedEntityRecognizer();
 		} catch (ResourceInitializationException e) {
 			// TODO Auto-generated catch block
@@ -25,27 +25,32 @@ public class NERAnnotator extends JCasAnnotator_ImplBase {
 		}
 	}
 
-	// get the position of the entity mention in the sentence
-	public int[] getPosition(String stccontent, String entity) {
+	/** calculate the position of then entity mention in every sentence of text
+	 * @generated
+	 * @param String cont 
+	 * @param String entity
+	 */
+	public int[] getPosition(String cont, String entity) {
 		int[] idx = new int[2];
-		stccontent = stccontent.replaceAll("\\s+", "");
+		cont = cont.replaceAll("\\s+", "");
 		entity = entity.replaceAll("\\s+", "");
-		idx[0] = stccontent.indexOf(entity);
+		idx[0] = cont.indexOf(entity);
 		idx[1] = idx[0] + entity.length() - 1;
 		return idx;
 	}
 
+	/** the implementation of process in Annotator
+	 * @generated
+	 * @param JCas aJcas 
+	 */
 	public void process(JCas aJCas) {
-
 		FSIterator it = aJCas.getAnnotationIndex(Sentence.type).iterator();
 
 		if (it.hasNext()) {
 			Sentence s = (Sentence) it.next();
-			// find all entity mentions in this sentence
 			Map<Integer, Integer> etts = myner.getGeneSpans(s.getContent());
 			for (Integer key : etts.keySet()) {
 				String entity = (s.getContent()).substring(key, etts.get(key));
-				// get the position of this entity mention
 				int[] entitypos = getPosition(s.getContent(), entity);
 				EntityMention em = new EntityMention(aJCas);
 				em.setStart(entitypos[0]);
