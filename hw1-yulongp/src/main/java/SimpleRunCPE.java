@@ -60,7 +60,6 @@ public class SimpleRunCPE extends Thread {
    */
   public SimpleRunCPE(String args[]) throws Exception {
     mStartTime = System.currentTimeMillis();
-
     // check command line args
     if (args.length < 1) {
       printUsageMessage();
