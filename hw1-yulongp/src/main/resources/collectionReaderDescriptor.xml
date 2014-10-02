@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <implementationName>NERCollectionReader</implementationName>
@@ -19,7 +20,7 @@
       <nameValuePair>
         <name>InputFile</name>
         <value>
-          <string>hw1.in</string>
+          <string>src/hw1.in</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>
